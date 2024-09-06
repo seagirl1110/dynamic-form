@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import InputComponent from './InputComponent.jsx';
+import styles from './DynamicForm.module.css';
 
 function DynamicForm() {
   const {
@@ -17,7 +18,7 @@ function DynamicForm() {
   const watchFirstFields = watch(['firstField']);
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmitForm)}>
       <InputComponent
         register={register}
         label="First Field"
@@ -47,7 +48,7 @@ function DynamicForm() {
         />
       )}
 
-      <button>submit</button>
+      <button className={styles.btn_submit}>Submit</button>
     </form>
   );
 }

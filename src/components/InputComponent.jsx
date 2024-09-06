@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React from 'react';
+import styles from './InputComponent.module.css';
 
 function InputComponent({
   register,
@@ -11,14 +12,17 @@ function InputComponent({
   placeholder,
 }) {
   return (
-    <label>
-      <span>{label}</span>
+    <label className={styles.input_wrapper}>
+      <span className={styles.label}>{label}</span>
       <input
+        className={styles.input}
         {...register(title, validation)}
         type={type}
         placeholder={placeholder}
       />
-      {errors[title] && <span>{errors[title].message}</span>}
+      {errors[title] && (
+        <span className={styles.error_msg}>* {errors[title].message}</span>
+      )}
     </label>
   );
 }
